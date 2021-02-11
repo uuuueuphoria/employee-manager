@@ -36,7 +36,14 @@ app.use(
 app.post('/login', (req, res) => {
   console.log(req.body);
   //res.send('trying to login');
-  //redirect
+  //redirect, send data back or files
+  //res.send()---text or simple markup
+  //res.json()----send json back
+  //res.sendFile----a file
+  //res.render----template
+
+  //pass the user email and password to the login service
+  //read the user file and then check the email
   res.sendFile(path.join(__dirname, '../client/dashboard.html'));
 });
 
