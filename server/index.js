@@ -35,12 +35,10 @@ app.use(
 //setup express.urlencoded({extended:true})
 app.post('/login', (req, res) => {
   console.log(req.body);
-  res.send('trying to login');
+  //res.send('trying to login');
+  //redirect
+  res.sendFile(path.join(__dirname, '../client/dashboard.html'));
 });
-
-// app.get('/api/v1/teams',(req,res)=>{
-
-// })
 
 // Final Middleware
 // Catch all for any request not handled while express was
