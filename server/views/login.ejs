@@ -26,7 +26,7 @@
           >
           <input
             id="email"
-            type="text"
+            type="email"
             name="email"
             placeholder="account@email.com"
             valid="<%-email%> "
@@ -40,9 +40,11 @@
           >
           <input
             id="password"
-            type="text"
+            type="password"
             name="password"
             placeholder="account password "
+            minlength="4"
+            maxlength="20"
             valid="<%-password%> "
           />
         </div>

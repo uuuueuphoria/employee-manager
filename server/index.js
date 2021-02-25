@@ -10,6 +10,7 @@ const cookieSession = require('cookie-session');
 
 // Importing our Login Service Used With the POST Login Route
 const loginService = require('./services/loginService');
+const fileService = require('./services/fileService');
 const { rename } = require('fs');
 
 // create an instance of express
@@ -74,6 +75,45 @@ app.get('/login', (req, res) => {
     password: '',
   });
 });
+
+app.get('/signup.html', (req, res) => {
+  res.redirect('signup.html');
+});
+app.post('/signup.html', (req, res) => {
+  let isValid = true;
+
+  const newUser = {
+    fullName: req.body.fullname,
+    email: req.body.email,
+    password: req.body.password,
+  };
+  if (
+    newUser.fullName == '' ||
+    newUser.fullName.length < 3 ||
+    newUser.fullName.length > 40
+  ) {
+    isValid = false;
+  }
+  if (newUser.email == '') {
+    isValid = false;
+  }
+  if (
+    newUser.password == '' ||
+    newUser.password.length < 4 ||
+    newUser.password.length > 20
+  ) {
+    isValid = false;
+  }
+  if (isValid == true) {
+    fileService.writeFileContents('../data/users.json', newUser);
+    const data = fileService.getFileContents('../data/users.json');
+    console.log(data);
+    res.redirect('login');
+  } else {
+    res.sendFile(path.join(__dirname, '../client/404.html'));
+  }
+});
+
 app.post('/login', (req, res) => {
   // if your incomming name value pairs are alot then create an object
   const credentials = {
@@ -97,18 +137,6 @@ app.post('/login', (req, res) => {
       password: req.body.password,
     });
   }
-
-  res.end();
-});
-
-app.post('/login', (req, res) => {
-  // POST name value pairs in body request
-  const credentials = {
-    email: req.body.email,
-    password: req.body.password,
-  };
-
-  const isValidUser = loginService.authenticate(credentials);
 
   res.end();
 });
