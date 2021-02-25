@@ -54,7 +54,7 @@ app.get('/dashboard', (req, res) => {
   if (req.session.isValid) {
     res.render('dashboard');
   } else {
-    res.sendFile(path.join(__dirname, './client/index.html'));
+    res.sendFile(path.join(__dirname, '../client/index.html'));
   }
 });
 
@@ -86,7 +86,7 @@ app.post('/login', (req, res) => {
     if (!req.session.isValid) {
       req.session.isValid = true;
     }
-    res.render('dashboard');
+    res.redirect('dashboard');
   }
   if (isValidUser.user === null) {
     //render the login with warnings
