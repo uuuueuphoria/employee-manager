@@ -28,4 +28,6 @@
 
 - Ejs is used as template to generate HTML markup to display data. The link for EJS is (https://ejs.co/)
 
+- uuid is installed to generate random id for each user
+
 **Link of working demo:** https://test-employee-manager.herokuapp.com/
