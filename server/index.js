@@ -130,7 +130,7 @@ app.post('/signup.html', (req, res) => {
     res.redirect('login');
   } else {
     //if new user is invalid, render the error ejs page to show the error messages
-    res.render('error', {
+    res.render('/error', {
       errorOne: nameError,
       errorTwo: emailError,
       errorThree: passwordError,
