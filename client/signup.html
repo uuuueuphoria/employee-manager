@@ -12,6 +12,7 @@
       <ul>
         <li><a href="index.html">home</a></li>
         <li><a href="login">account login</a></li>
+        <li><a href="user.html">User</a></li>
       </ul>
     </nav>
 
@@ -31,7 +32,7 @@
             placeholder="first and last name"
             value="jim foley"
             minlength="3"
-            maxlength="40"
+            required
           />
         </div>
         <div class="form-control">
@@ -44,6 +45,7 @@
             name="email"
             placeholder="email address for the account"
             value="email@workspace.com"
+            required
           />
         </div>
 
@@ -53,12 +55,11 @@
           ></label>
           <input
             id="password"
-            type="password"
+            type="text"
             name="password"
             placeholder="password for the account"
             value="temp"
-            minlength="4"
-            maxlength="20"
+            required
           />
         </div>
 

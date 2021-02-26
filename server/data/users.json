@@ -1,1 +1,4 @@
-[{"username":"jim","email":"user@gmail.com","password":"1234"},{"fullName":"jim foley","email":"email@workspace.com","password":"temp"},{"fullName":"wanlun","email":"wanlun@workspace.com","password":"1234567"}]
+[
+    {"id":"h3bdk2le-ndj2-bkdn-ajmn-jam3bdnv2kdh","fullName":"jim","email":"user@gmail.com","password":"1234"},
+    {"id":"f1034d30-5d99-4eac-a347-6db8004e954d","fullName":"Wanlun Xue","email":"wanlun@ualberta.ca","password":"temp"}
+]

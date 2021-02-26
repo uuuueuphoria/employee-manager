@@ -76,26 +76,42 @@ app.get('/login', (req, res) => {
   });
 });
 
+//get to sign up page
 app.get('/signup.html', (req, res) => {
   res.redirect('signup.html');
 });
+
+//when click sign up
 app.post('/signup.html', (req, res) => {
   let isValid = true;
+  let nameError = '';
+  let emailError = '';
+  let passwordError = '';
 
+  //require uuid to give unique id to each user
+  const { v4: uuidv4 } = require('uuid');
+
+  //define newUser
   const newUser = {
+    id: uuidv4(),
     fullName: req.body.fullname,
     email: req.body.email,
     password: req.body.password,
   };
+
+  //do server side validation
   if (
     newUser.fullName == '' ||
     newUser.fullName.length < 3 ||
     newUser.fullName.length > 40
   ) {
     isValid = false;
+    nameError =
+      'You entered invalid full name, name must between 3 and 40 characters';
   }
   if (newUser.email == '') {
     isValid = false;
+    emailError = 'email cannot be empty';
   }
   if (
     newUser.password == '' ||
@@ -103,14 +119,22 @@ app.post('/signup.html', (req, res) => {
     newUser.password.length > 20
   ) {
     isValid = false;
+    passwordError = 'password should between 4 and 20 characters';
   }
+
+  //if new user is valid, write the data to users.json using file service
   if (isValid == true) {
     fileService.writeFileContents('../data/users.json', newUser);
     const data = fileService.getFileContents('../data/users.json');
     console.log(data);
     res.redirect('login');
   } else {
-    res.sendFile(path.join(__dirname, '../client/404.html'));
+    //if new user is invalid, render the error ejs page to show the error messages
+    res.render('error', {
+      errorOne: nameError,
+      errorTwo: emailError,
+      errorThree: passwordError,
+    });
   }
 });
 
@@ -139,6 +163,13 @@ app.post('/login', (req, res) => {
   }
 
   res.end();
+});
+
+//get users data from user.json using file services
+const users = fileService.getFileContents('../data/users.json');
+//create api end point to return all users
+app.get('/api/v1/users', (req, res) => {
+  res.json(users);
 });
 
 // Final Middleware
