@@ -20,45 +20,51 @@
       <header>
         <h2 class="center">Sign Up For Your Free Trial Account</h2>
       </header>
-      <form id="register" action="/signup.html" method="POST">
+      <form id="register" action="/signup" method="POST">
         <div class="form-control">
           <label for="fullname"
-            >Please enter your full name. <span class="warning"></span
-          ></label>
+            >Please enter your full name.
+            <span class="warning"><%- nameWarning %> </span></label
+          >
           <input
             id="fullname"
             type="text"
             name="fullname"
             placeholder="first and last name"
-            value="jim foley"
+            value=""
+            valid="<%- fullname %> "
             minlength="3"
             required
           />
         </div>
         <div class="form-control">
           <label for="email"
-            >Enter an valid email address <span class="warning"></span
-          ></label>
+            >Enter an valid email address
+            <span class="warning"><%- emailWarning %> </span></label
+          >
           <input
             id="email"
             type="email"
             name="email"
-            placeholder="email address for the account"
-            value="email@workspace.com"
+            placeholder="email@workspace.com"
+            value=""
+            valid="<%- email %> "
             required
           />
         </div>
 
         <div class="form-control">
           <label for="password"
-            >Enter a secure password <span class="warning"></span
-          ></label>
+            >Enter a secure password
+            <span class="warning"><%- passwordWarning %> </span></label
+          >
           <input
             id="password"
             type="text"
             name="password"
             placeholder="password for the account"
-            value="temp"
+            value=""
+            valid="<%- password %> "
             required
           />
         </div>

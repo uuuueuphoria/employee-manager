@@ -4,6 +4,7 @@ window.addEventListener('load', function (e) {
   //fetch api endpoint to get user data
   xhttp.open('GET', 'http://localhost:5000/api/v1/users', false);
   xhttp.send();
+  console.log(xhttp);
 
   //parse the data into users
 
@@ -32,4 +33,5 @@ window.addEventListener('load', function (e) {
     document.querySelector('.users').innerHTML =
       document.querySelector('.users').innerHTML + x;
   }
+  console.log(users);
 });

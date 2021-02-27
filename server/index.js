@@ -77,12 +77,19 @@ app.get('/login', (req, res) => {
 });
 
 //get to sign up page
-app.get('/signup.html', (req, res) => {
-  res.redirect('signup.html');
+app.get('/signup', (req, res) => {
+  res.render('signup', {
+    nameWarning: '',
+    emailWarning: '',
+    passwordWarning: '',
+    fullname: '',
+    email: '',
+    password: '',
+  });
 });
 
 //when click sign up
-app.post('/signup.html', (req, res) => {
+app.post('/signup', (req, res) => {
   let isValid = true;
   let nameError = '';
   let emailError = '';
@@ -94,29 +101,29 @@ app.post('/signup.html', (req, res) => {
   //define newUser
   const newUser = {
     id: uuidv4(),
-    fullName: req.body.fullname,
-    email: req.body.email,
-    password: req.body.password,
+    fullName: req.body.fullname.trim(),
+    email: req.body.email.trim(),
+    password: req.body.password.trim(),
   };
 
   //do server side validation
   if (
-    newUser.fullName == '' ||
-    newUser.fullName.length < 3 ||
-    newUser.fullName.length > 40
+    newUser.fullName.trim() == '' ||
+    newUser.fullName.trim().length < 3 ||
+    newUser.fullName.trim().length > 40
   ) {
     isValid = false;
     nameError =
       'You entered invalid full name, name must between 3 and 40 characters';
   }
-  if (newUser.email == '') {
+  if (newUser.email.trim() == '') {
     isValid = false;
     emailError = 'email cannot be empty';
   }
   if (
-    newUser.password == '' ||
-    newUser.password.length < 4 ||
-    newUser.password.length > 20
+    newUser.password.trim() == '' ||
+    newUser.password.trim().length < 4 ||
+    newUser.password.trim().length > 20
   ) {
     isValid = false;
     passwordError = 'password should between 4 and 20 characters';
@@ -126,17 +133,20 @@ app.post('/signup.html', (req, res) => {
   if (isValid == true) {
     fileService.writeFileContents('../data/users.json', newUser);
     const data = fileService.getFileContents('../data/users.json');
-    console.log(data);
+    //console.log(data);
     res.redirect('login');
   } else {
     //if new user is invalid, render the error ejs page to show the error messages
-    res.render('error', {
-      errorOne: nameError,
-      errorTwo: emailError,
-      errorThree: passwordError,
+    res.render('signup', {
+      nameWarning: nameError,
+      emailWarning: emailError,
+      passwordWarning: passwordError,
+      fullname: newUser.fullName,
+      email: newUser.email,
+      password: newUser.password,
     });
-    res.end();
   }
+  res.end();
 });
 
 app.post('/login', (req, res) => {
@@ -166,10 +176,11 @@ app.post('/login', (req, res) => {
   res.end();
 });
 
-//get users data from user.json using file services
-const users = fileService.getFileContents('../data/users.json');
 //create api end point to return all users
 app.get('/api/v1/users', (req, res) => {
+  //get users data from user.json using file services
+  const users = fileService.getFileContents('../data/users.json');
+  console.log(users);
   res.json(users);
 });
 
