@@ -2,7 +2,11 @@ window.addEventListener('load', function (e) {
   const xhttp = new XMLHttpRequest();
 
   //fetch api endpoint to get user data
-  xhttp.open('GET', 'http://localhost:5000/api/v1/users', false);
+  xhttp.open(
+    'GET',
+    'https://test-employee-manager.herokuapp.com/api/v1/users',
+    false
+  );
   xhttp.send();
   console.log(xhttp);
 
