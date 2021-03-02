@@ -8,6 +8,9 @@ const path = require('path');
 const cors = require('cors');
 const cookieSession = require('cookie-session');
 
+const employeeRouter = require('./routes/employeeRouter');
+const departmentRouter = require('./routes/departmentRouter');
+
 // Importing our Login Service Used With the POST Login Route
 const loginService = require('./services/loginService');
 const fileService = require('./services/fileService');
@@ -183,6 +186,9 @@ app.get('/api/v1/users', (req, res) => {
   console.log(users);
   res.json(users);
 });
+
+app.use('/api/departments', departmentRouter());
+app.use('/api/employees', employeeRouter());
 
 // Final Middleware
 // Catch all for any request not handled while express was
