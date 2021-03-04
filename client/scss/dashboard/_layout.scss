@@ -1,0 +1,31 @@
+.dashboard {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 298px 1fr;
+  grid-template-rows: 60px 100px calc(100vh - 160px);
+  grid-template-areas:
+    'controls controls'
+    'sidebar keypoints'
+    'sidebar panels';
+}
+
+.control-strip {
+  grid-area: controls;
+  position: relative;
+  z-index: 8;
+}
+.sidebar {
+  grid-area: sidebar;
+  position: relative;
+  z-index: 6;
+}
+.key-points {
+  grid-area: keypoints;
+  z-index: 4;
+  position: relative;
+}
+
+.display-panels {
+  grid-area: panels;
+  background: rgb(239, 239, 239);
+}

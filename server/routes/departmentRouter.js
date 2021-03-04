@@ -5,6 +5,7 @@ const Department = require('../controllers/Department');
 const router = express.Router();
 const departmentController = new Department('../data/employees.json');
 
+//common js modules
 module.exports = () => {
   router.get('/', (req, res) => {
     //use controller MVC Model employees, views ejs, controller
@@ -14,9 +15,13 @@ module.exports = () => {
     res.send(departments);
   });
 
+  //single department
+  //get request (body)
   router.get('/name/:name', (req, res) => {
     //res.send({ params: req.params, query: req.query });
-    const department = departmentController.getDepartmentByName('name');
+    const department = departmentController.getDepartmentByName(
+      req.params.name
+    );
     res.send(department);
   });
   return router;

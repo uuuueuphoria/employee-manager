@@ -1,0 +1,22 @@
+.sidebar {
+  color: #0c343d;
+  position: relative;
+  width: 298px;
+  height: calc(100vh - 60px);
+  box-shadow: inset 1px 1px 0 rgba(98, 87, 87, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  padding: 6rem 2rem 0;
+}
+
+.sidebar header {
+  font-size: 1.5rem;
+}
+
+.sidebar ul {
+  padding-left: 0.25rem;
+  color: #acb3bf;
+}
+
+.sidebar li {
+  margin: 1rem 0;
+}

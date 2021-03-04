@@ -1,0 +1,19 @@
+.control-strip {
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+
+  background-color: #ffffff;
+  padding: 1rem;
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  li:first-child {
+    margin-left: 1rem;
+  }
+}
+
+.user-controls {
+  display: flex;
+  gap: 1.25rem;
+}

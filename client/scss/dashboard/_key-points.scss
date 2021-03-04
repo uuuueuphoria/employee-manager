@@ -1,0 +1,26 @@
+.key-points {
+  background-color: #ffffff;
+  li {
+    width: 25%;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 1px 1px 0 rgba(98, 87, 87, 0.1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+.points {
+  display: flex;
+}
+.point {
+  h3 {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 1.75rem;
+    color: tomato;
+  }
+}

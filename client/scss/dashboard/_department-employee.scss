@@ -1,0 +1,48 @@
+.department-employees {
+  width: max-content;
+  img {
+    height: 75px;
+    width: 75px;
+  }
+  ul {
+    width: 720px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    box-shadow: 0 0 2px 1px rgba(136, 132, 132, 0.12);
+  }
+
+  li:nth-child(1) {
+    margin: 0;
+  }
+  li:nth-child(2) {
+    width: 90px;
+  }
+  input {
+    width: inherit;
+    color: #0c343d;
+    padding: 0.5rem;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+  }
+}
+
+.employee {
+  margin: 0 0 1rem;
+}
+.controls {
+  img {
+    width: 1.35rem;
+    margin-right: 0.25rem;
+  }
+  padding-right: 1rem;
+}
+
+.fullname {
+  input {
+    display: block;
+    padding: 0;
+  }
+}

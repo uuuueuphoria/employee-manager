@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DashBoard</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main class="dashboard">
+      <nav class="control-strip">
+        <ul>
+          <li class="brand"><h1>employee dashboard</h1></li>
+          <li class="user-controls">
+            <img src="assets/svgs/help.svg" alt="" />
+            <img src="assets/svgs/email.svg" alt="" />
+            <img src="assets/svgs/settings.svg" alt="" />
+          </li>
+        </ul>
+      </nav>
+
+      <aside class="sidebar">
+        <header class="sidebar-header">
+          <h2>Departments</h2>
+        </header>
+        <ul class="departments">
+          <li class="department" data-name="">department placehoder</li>
+          <!-- 
+          <details>
+            <summary>Employees</summary>
+            <ul>
+              <li>employees things</li>
+              <li>employees things</li>
+              <li>employees things</li>
+              <li>employees things</li>
+            </ul>
+          </details>
+
+          <li class="department" data-name="">department placehoder</li>
+          <li class="department" data-name="">department placehoder</li>
+          <li class="department" data-name="">department placehoder</li> -->
+        </ul>
+
+        <ul></ul>
+      </aside>
+
+      <aside class="key-points">
+        <ul class="points">
+          <li class="point">
+            <p>value</p>
+            <h3>Key Point</h3>
+          </li>
+          <li class="point">
+            <p>value</p>
+            <h3>Key Point</h3>
+          </li>
+          <li class="point">
+            <p>value</p>
+            <h3>Key Point</h3>
+          </li>
+          <li class="point">
+            <p>value</p>
+            <h3>Key Point</h3>
+          </li>
+          <li class="point">
+            <p>value</p>
+            <h3>Key Point</h3>
+          </li>
+        </ul>
+      </aside>
+
+      <aside class="display-panels">
+        <header class="panel-heading">
+          <h2>Departmet Name</h2>
+        </header>
+
+        <section class="department-panel-group">
+          <aside class="department-manager">
+            <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="" />
+            <ul>
+              <li class="fullname">Nancy Fligg</li>
+              <li class="email">email: bfligg4@bloomberg.com</li>
+              <li class="cell-number">cell: 251-174-4403</li>
+              <li>email:nancy@home.com</li>
+            </ul>
+          </aside>
+
+          <aside class="department-employees">
+            <ul class="employee">
+              <li>
+                <img
+                  src="https://randomuser.me/api/portraits/women/2.jpg"
+                  alt=""
+                />
+              </li>
+
+              <li class="fullname">
+                <input id="firstname" type="text" value="Nancy" readonly />
+                <input id="lasttname" type="text" value="Fligg" readonly />
+              </li>
+
+              <li>
+                <input id="email" type="text" value="nancy@home.com" readonly />
+              </li>
+
+              <li class="cell-number">
+                <input
+                  id="cell"
+                  type="text"
+                  value="cell: 251-174-4403"
+                  readonly
+                />
+              </li>
+
+              <li class="controls">
+                <img id="delete" class="icon" src="assets/svgs/delete.svg"
+                width:="24px" alt="">
+                <img
+                  id="edit"
+                  class="icon"
+                  src="assets/svgs/edit.svg"
+                  width="24px"
+                  alt=""
+                />
+              </li>
+            </ul>
+          </aside>
+        </section>
+      </aside>
+    </main>
+    <script type="module" src="js/dashboard.js"></script>
+  </body>
+</html>

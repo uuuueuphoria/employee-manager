@@ -1,0 +1,23 @@
+.department-manager {
+  background: #ffffff;
+  width: max-content;
+  display: flex;
+  box-shadow: 0 0 2px 1px rgba(136, 132, 132, 0.12);
+
+  img {
+    width: 190px;
+  }
+  ul {
+    padding: 1rem 2rem;
+  }
+  li {
+    margin: 0.5rem 0;
+    color: #acb3bf;
+  }
+  li:nth-child(1) {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #0c343d;
+  }
+}

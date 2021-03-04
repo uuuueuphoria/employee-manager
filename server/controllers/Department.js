@@ -16,7 +16,9 @@ class Department {
   getDepartmentByName(name) {
     //return everyone in the department
     //employee.filter(employee=>employee.department=name)
-    return 'get a single department';
+    const employees = this.getData();
+    const result = employees.filter((employee) => (employee.department = name));
+    return result;
   }
   getData() {
     return fileService.getFileContents(this.filePath);
